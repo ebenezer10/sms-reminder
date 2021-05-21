@@ -11,8 +11,8 @@ const TO = "22892251620"
 const TEXT = 'A text message sent using the Vonage SMS API'
 
 const DAY_NUMBER = 5;
-const HOUR = 18;
-const MINUTES = 00;
+const HOUR = 19;
+const MINUTES = 05;
 
 let date;
 let lastWeek = 0;
