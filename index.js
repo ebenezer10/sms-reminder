@@ -1,24 +1,17 @@
+require('dotenv').config();
 const moment = require('moment');
 const Vonage = require('@vonage/server-sdk')
 
 const vonage = new Vonage({
-    apiKey: "25d0e530",
-    apiSecret: "NgVz3mtXfuu0HBl3"
+    apiKey: process.env.API_KEY,
+    apiSecret: process.env.API_SECRET
 })
-
-const FROM = "SELF REMINDER"
-const TO = "22892251620"
-const TEXT = 'A text message sent using the Vonage SMS API'
-
-const DAY_NUMBER = 5;
-const HOUR = 19;
-const MINUTES = 05;
 
 let date;
 let lastWeek = 0;
 setInterval(function () {
     date = new Date();
-    if(date.getDay() == DAY_NUMBER && date.getUTCHours() == HOUR && date.getUTCMinutes() == MINUTES){
+    if(date.getDay() == process.env.DAY_NUMBER && date.getUTCHours() == process.env.HOUR && date.getUTCMinutes() == process.env.MINUTES){
         if(lastWeek != moment().format('W')){
             sendMessage();
         }
@@ -26,7 +19,7 @@ setInterval(function () {
 }, 5000);
 
 function sendMessage(){
-    vonage.message.sendSms(FROM, TO, TEXT, (err, responseData) => {
+    vonage.message.sendSms(process.env.FROM, process.env.TO, process.env.TEXT, (err, responseData) => {
         if (err) {
             console.log(err);
         } else {

@@ -1,0 +1,11 @@
+# Sms-reminder
+## A node script to send sms on specific date and time
+
+This script let you send a text message(sms) to your mobile phone for reminding purpose. To install, clone the project and install dependancies with :
+> npm install.
+
+### Required environnement variables are :
+
+* **FROM**
+* **TO**
+* **TEXT**
